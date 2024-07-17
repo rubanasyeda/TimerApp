@@ -1,16 +1,13 @@
 import {ReactComponent as Logo} from './logo.svg';
 import './App.css';
+import Timer from './Timer';
+import Stopwatch from './stopwatch';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <Logo style={{ height :300}} />
-        
-        <h1>Timer App</h1>
-      </header>
+      <Stopwatch/>
     </div>
   );
 }
-
 export default App;

@@ -1,0 +1,17 @@
+.timer{
+    background-color: white;
+    display: flex;
+    justify-content: center;
+}
+
+.container{
+    padding-top: 100px;
+}
+
+.timer_container{
+    background-color: cadetblue;
+    width: 20vw;
+    padding: 1rem 6rem;
+    border-radius: 1rem;
+    box-shadow: 0 1rem 1rem -0.7rem black;
+}

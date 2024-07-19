@@ -1,6 +1,5 @@
-import React, { useRef } from 'react';
-import { useState, useEffect } from 'react';
-import "./stopwatch.css"
+import React, { useEffect, useRef, useState } from 'react';
+import "./stopwatch.css";
 
 const Stopwatch = () => {
   const [minutes, setMinutes] = useState(0);
@@ -39,9 +38,9 @@ const Stopwatch = () => {
   }
 
   return (
-    <div className="timer">
+    <div className="stopwatch_timer">
       <div className='container'>
-      <div className='timer_container'>
+      <div className='stopwatch_timer_container'>
         <h1>Stopwatch</h1>
         <h1>{minutes<10?"0"+minutes:minutes}:{seconds<10?"0"+seconds:seconds}</h1>
 

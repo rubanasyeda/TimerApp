@@ -4,14 +4,47 @@
     justify-content: center;
 }
 
-.container{
+.timer_container{
     padding-top: 100px;
 }
 
 .countdown_timer_container{
     background-color: rgb(60, 141, 84);
-    width: 20vw;
+    width: 30vw;
     padding: 1rem 6rem;
     border-radius: 1rem;
     box-shadow: 0 1rem 1rem -0.7rem black;
+}
+
+.time-inputs {
+    margin-bottom: 20px;
+    
+}
+
+input {
+    width: 50px;
+    padding: 10px;
+    margin: 0 5px;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.controls button {
+    padding: 10px 15px;
+    margin: 0 5px;
+    border: none;
+    border-radius: 4px;
+    background-color: rgb(60, 141, 8);
+    color: white;
+    cursor: pointer;
+}
+
+.controls button:hover {
+    background-color: #0056b3;
+}
+
+.display {
+    font-size: 2em;
+    margin-top: 20px;
 }

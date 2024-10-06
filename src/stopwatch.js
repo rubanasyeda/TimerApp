@@ -39,7 +39,7 @@ const Stopwatch = () => {
 
   return (
     <div className="stopwatch_timer">
-      <div className='container'>
+      <div className='stopwatch_container'>
       <div className='stopwatch_timer_container'>
         <h1>Stopwatch</h1>
         <h1>{minutes<10?"0"+minutes:minutes}:{seconds<10?"0"+seconds:seconds}</h1>

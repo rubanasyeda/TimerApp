@@ -7,6 +7,7 @@ const Timer = () => {
   const [seconds, setSeconds] = useState(0);
   const [totalTime, setTotalTime] = useState(0);
   const [isActive, setIsActive] = useState(false);
+  const [isPaused, setIsPaused] = useState(false);
   const countdownRef = useRef(null);
 
   const updateDisplay = (time) => {
@@ -17,7 +18,7 @@ const Timer = () => {
   };
 
   useEffect(() => {
-    if (isActive) {
+    if (isActive && !isPaused) {
       countdownRef.current = setInterval(() => {
         setTotalTime((prevTime) => {
           if (prevTime <= 1000) {
@@ -32,21 +33,27 @@ const Timer = () => {
     }
 
     return () => clearInterval(countdownRef.current); // Cleanup interval on unmount
-  }, [isActive]);
+  }, [isActive, isPaused]);
 
   const startTimer = () => {
     const total = (hours * 3600 + minutes * 60 + seconds) * 1000;
     setTotalTime(total);
     setIsActive(true);
+    setIsPaused(false);
   };
 
   const pauseTimer = () => {
-    setIsActive(false);
+    setIsPaused(true);
+  };
+
+  const resumeTimer = () => {
+    setIsPaused(false);
   };
 
   const resetTimer = () => {
     clearInterval(countdownRef.current);
     setIsActive(false);
+    setIsPaused(false);
     setTotalTime(0);
     setHours(0);
     setMinutes(0);
@@ -64,8 +71,12 @@ const Timer = () => {
             <input type="number" value={seconds} onChange={(e) => setSeconds(Number(e.target.value))} placeholder="SS" min="0" max="59" />
           </div>
           <div className="controls">
-            <button onClick={startTimer}>Start</button>
-            <button onClick={pauseTimer}>Pause</button>
+            <button onClick={startTimer} disabled={isActive} >Start</button>
+            {isActive && (
+              <button onClick={isPaused ? resumeTimer : pauseTimer}>
+                {isPaused ? 'Resume' : 'Pause'}
+              </button>
+            )}
             <button onClick={resetTimer}>Reset</button>
           </div>
           <div className="display">
